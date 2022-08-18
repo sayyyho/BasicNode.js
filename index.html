@@ -9,15 +9,13 @@
 <body>
     <h1 id = "res"></h1>
     <input id="name" type="text">
-    <button onclick="getSound()">API 요청</button>
+    <button onclick="getInfo()">API 요청</button>
     <script>
-        function getSound() {
+        function getInfo() {
             const name = document.querySelector("#name").value;
-            console.log(name);
-            fetch(`http://localhost:3000/sound/${name}`)
+            fetch(`https://port-0-basicnode-js-5cw30n24l6yw7wz0.gksl1.cloudtype.app/sound/${name}`)
             .then((response) => response.json())
             .then((data) => {
-                console.log(data.name);
                 document.querySelector("#res").innerHTML = data.name;
             });
         }
