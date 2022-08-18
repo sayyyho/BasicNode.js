@@ -1,10 +1,15 @@
-var figlet = require('figlet');
+const express = require('express')
+const app = express()
 
-figlet('Hello World!!', function(err, data) {
-    if (err) {
-        console.log('Something went wrong...');
-        console.dir(err);
-        return;
-    }
-    console.log(data)
+app.get('/', (req, res) => {
+  res.send('Hello World')
 });
+
+app.get('/dog', (req, res) => {
+    res.json({'key' : 'value'});
+});
+app.get('/cat', (req, res) => {
+    res.json({'key' : 'value'});
+});
+
+app.listen(3000, ()=>console.log('now running'));
